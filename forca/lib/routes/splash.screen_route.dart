@@ -28,6 +28,7 @@ class _SplashScreenRouteState extends State<SplashScreenRoute> {
           padding: const EdgeInsets.only(left: 100, right: 100),
           child: LinearProgressIndicator(
             backgroundColor: Colors.blue[200],
+            //teste
             valueColor: AlwaysStoppedAnimation<Color?>(Colors.blue[900]),
           ),
         )
