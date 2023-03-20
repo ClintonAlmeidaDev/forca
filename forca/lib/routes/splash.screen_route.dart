@@ -1,5 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:forca/routes/home_route.dart';
+import 'package:forca/routes/welcome_route.dart';
+import 'package:forca/shared_preferences/app_preferences.dart';
 import 'package:forca/widgets/circular_image_widget.dart';
 
 class SplashScreenRoute extends StatefulWidget {
@@ -10,6 +15,35 @@ class SplashScreenRoute extends StatefulWidget {
 }
 
 class _SplashScreenRouteState extends State<SplashScreenRoute> {
+  _whereToNavigate({required bool welcomeRead}) {
+    if (welcomeRead) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomeRoute(),
+          ));
+    } else {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => WelcomeRoute(),
+          ));
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(const Duration(seconds: 3), () {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        AppPreferences.getWelcomeRead().then((status) async {
+          await _whereToNavigate(welcomeRead: status);
+        });
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
