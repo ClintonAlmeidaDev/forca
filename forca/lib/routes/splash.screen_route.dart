@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:forca/drawer/drawer_route.dart';
 import 'package:forca/routes/home_route.dart';
 import 'package:forca/routes/welcome_route.dart';
 import 'package:forca/shared_preferences/app_preferences.dart';
@@ -20,7 +21,7 @@ class _SplashScreenRouteState extends State<SplashScreenRoute> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const HomeRoute(),
+            builder: (context) => const DrawerRoute(),
           ));
     } else {
       Navigator.push(

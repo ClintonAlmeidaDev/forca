@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:forca/drawer/drawer_route.dart';
 import 'package:forca/routes/home_route.dart';
 import 'package:forca/shared_preferences/app_preferences.dart';
 
@@ -62,7 +63,8 @@ class _WelcomeRouteState extends State<WelcomeRoute> {
                       status: _checkBoxIsChecked);
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomeRoute()),
+                    MaterialPageRoute(
+                        builder: (context) => const DrawerRoute()),
                   );
                 },
                 child: Text(
