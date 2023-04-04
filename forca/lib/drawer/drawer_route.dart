@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:forca/drawer/widgets/drawerbody_app.dart';
-import 'package:forca/drawer/widgets/drawerbodycontent_app.dart';
-import 'package:forca/drawer/widgets/drawerheader_app.dart';
+import 'package:forca/drawer/widgets/drawercontrollerwidget.dart';
 import 'package:forca/widgets/circular_image_widget.dart';
-import 'package:forca/widgets/drawer_controller_widget.dart';
+
+import 'widgets/drawerbody_app.dart';
+import 'widgets/drawerbodycontent_app.dart';
+import 'widgets/drawerheader_app.dart';
 
 class DrawerRoute extends StatelessWidget {
-  const DrawerRoute({super.key});
+  const DrawerRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,7 @@ class DrawerRoute extends StatelessWidget {
       ),
       drawer: Drawer(
         child: Column(
-          children: <Widget>[
+          children: const <Widget>[
             DrawerHeaderApp(),
             DrawerBodyApp(
               child: DrawerBodyContentApp(),

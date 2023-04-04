@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
 
 class DrawerHeaderApp extends StatelessWidget {
-  const DrawerHeaderApp({
-    Key? key,
-  }) : super(key: key);
+  const DrawerHeaderApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DrawerHeader(
+    return const DrawerHeader(
       padding: EdgeInsets.zero,
       margin: EdgeInsets.zero,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage('assets/images/drawer/drawer_header.png'),
         ),
       ),
       child: UserAccountsDrawerHeader(
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-        ),
+        decoration: BoxDecoration(color: Colors.transparent),
         accountName: Text(
-          "Clinton de Almeida",
+          "Everton Coimbra de Araújo",
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         accountEmail: Text(
-          "clinton.almeida10@gmail.com",
+          "evertoncoimbra@gmail.com",
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         currentAccountPicture: CircleAvatar(
@@ -39,8 +35,8 @@ class DrawerHeaderApp extends StatelessWidget {
         otherAccountsPictures: <Widget>[
           CircleAvatar(
             backgroundImage:
-                AssetImage('assets/images/drawer/avatar_picture03.jpg'),
-          )
+                AssetImage('assets/images/drawer/avatar_picture_03.png'),
+          ),
         ],
       ),
     );

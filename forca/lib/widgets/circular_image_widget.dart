@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CircularImageWidget extends StatelessWidget {
@@ -6,11 +5,12 @@ class CircularImageWidget extends StatelessWidget {
   final double width;
   final double height;
 
-  const CircularImageWidget(
-      {super.key,
-      required this.imageProvider,
-      this.width = 300,
-      this.height = 300});
+  const CircularImageWidget({
+    super.key,
+    required this.imageProvider,
+    this.width = 300,
+    this.height = 300,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +18,16 @@ class CircularImageWidget extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.black,
-            width: 5.0,
-          ),
-          shape: BoxShape.circle,
-          image: DecorationImage(fit: BoxFit.cover, image: imageProvider)),
+        border: Border.all(
+          color: Colors.black,
+          width: 5.0,
+        ),
+        shape: BoxShape.circle,
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: imageProvider,
+        ),
+      ),
     );
   }
 }

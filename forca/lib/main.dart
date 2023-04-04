@@ -1,30 +1,31 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:forca/routes/splash.screen_route.dart';
+
+import 'routes/splash_screen_route.dart';
 
 void main() => runApp(const ForcaApp());
 
 class ForcaApp extends StatelessWidget {
-  const ForcaApp({super.key});
+  const ForcaApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Forca da UTFPR',
-      theme:
-          ThemeData(primaryColor: Colors.blue, backgroundColor: Colors.green),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        backgroundColor: Colors.green,
+      ),
       home: const ForcaHomePage(),
     );
   }
 }
 
 class ForcaHomePage extends StatelessWidget {
-  const ForcaHomePage({super.key});
+  const ForcaHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SplashScreenRoute(),
     );
   }
