@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -26,8 +27,19 @@ class DrawerControllerWidget extends StatelessWidget {
               ? Positioned(
                   top: topBody,
                   left: leftBody,
-                  child: body ?? Container(),
-                )
+                  child: (appBar == null)
+                      ? AppBar()
+                      : AppBar(
+                          automaticallyImplyLeading:
+                              appBar!.automaticallyImplyLeading,
+                          title: appBar!.title,
+                          centerTitle: appBar!.centerTitle,
+                          actions: <Widget>[
+                            GestureDetector(
+                              child: appBar!.actions![0],
+                            ),
+                          ],
+                        ))
               : body!,
           DrawerController(
             child: drawer != null ? drawer! : Container(),
