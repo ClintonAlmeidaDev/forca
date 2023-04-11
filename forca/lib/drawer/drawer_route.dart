@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forca/drawer/widgets/drawer_controller_widget.dart';
+import 'package:forca/widgets/circular_image_widget.dart';
 
 import 'widgets/drawerbody_app.dart';
 import 'widgets/drawerbodycontent_app.dart';
@@ -26,6 +27,11 @@ class _DrawerRouteState extends State<DrawerRoute> {
             size: 40,
           )
         ],
+      ),
+      body: const CircularImageWidget(
+        imageProvider: AssetImage('assets/images/splashscreen.png'),
+        width: 100,
+        height: 100,
       ),
     );
   }
