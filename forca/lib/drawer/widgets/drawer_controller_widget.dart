@@ -18,6 +18,11 @@ class DrawerControllerWidget extends StatelessWidget {
             left: 0.0,
             right: 0.0,
             child: appBar ?? AppBar(),
+          ),
+          Positioned(
+            top: MediaQuery.of(context).size.height - 105,
+            left: MediaQuery.of(context).size.width - 105,
+            child: body ?? Container(),
           )
         ],
       ),
