@@ -35,6 +35,14 @@ class _DrawerRouteState extends State<DrawerRoute> {
         width: 100,
         height: 100,
       ),
+      drawer: Drawer(
+        child: Column(
+          children: const <Widget>[
+            DrawerHeaderApp(),
+            DrawerBodyApp(child: DrawerBodyContentApp())
+          ],
+        ),
+      ),
     );
   }
 }

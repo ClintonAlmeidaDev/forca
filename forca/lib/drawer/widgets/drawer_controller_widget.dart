@@ -8,12 +8,14 @@ class DrawerControllerWidget extends StatelessWidget {
       required this.appBar,
       this.body,
       this.topBody,
-      this.leftBody});
+      this.leftBody,
+      required this.drawer});
 
   final AppBar? appBar;
   final Widget? body;
   final double? topBody;
   final double? leftBody;
+  final Drawer drawer;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,17 @@ class DrawerControllerWidget extends StatelessWidget {
             top: 0.0,
             left: 0.0,
             right: 0.0,
-            child: appBar ?? AppBar(),
+            child: (appBar == null)
+                ? AppBar()
+                : AppBar(
+                    automaticallyImplyLeading:
+                        appBar!.automaticallyImplyLeading,
+                    title: appBar!.title,
+                    centerTitle: appBar!.centerTitle,
+                    actions: <Widget>[
+                      GestureDetector(child: appBar!.actions![0]),
+                    ],
+                  ),
           ),
           (topBody != null || leftBody != null)
               ? Positioned(
@@ -33,6 +45,10 @@ class DrawerControllerWidget extends StatelessWidget {
                   child: body ?? Container(),
                 )
               : body!,
+          DrawerController(
+            alignment: DrawerAlignment.end,
+            child: drawer != null ? drawer! : Container(),
+          )
         ],
       ),
     );
