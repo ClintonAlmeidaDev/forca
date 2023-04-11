@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class DrawerControllerWidget extends StatelessWidget {
-  const DrawerControllerWidget(
+  DrawerControllerWidget(
       {super.key,
       required this.appBar,
       this.body,
@@ -11,11 +11,19 @@ class DrawerControllerWidget extends StatelessWidget {
       this.leftBody,
       required this.drawer});
 
+  GlobalKey<DrawerControllerState> drawerKey =
+      GlobalKey<DrawerControllerState>();
+
   final AppBar? appBar;
   final Widget? body;
   final double? topBody;
   final double? leftBody;
   final Drawer drawer;
+
+  void _openDrawer() {
+    drawerKey.currentState!.open();
+    print("Alterando estado");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +42,10 @@ class DrawerControllerWidget extends StatelessWidget {
                     title: appBar!.title,
                     centerTitle: appBar!.centerTitle,
                     actions: <Widget>[
-                      GestureDetector(child: appBar!.actions![0]),
+                      GestureDetector(
+                        child: appBar!.actions![0],
+                        onTap: () => _openDrawer(),
+                      ),
                     ],
                   ),
           ),
@@ -46,8 +57,9 @@ class DrawerControllerWidget extends StatelessWidget {
                 )
               : body!,
           DrawerController(
+            key: drawerKey,
             alignment: DrawerAlignment.end,
-            child: drawer != null ? drawer! : Container(),
+            child: drawer != null ? drawer : Container(),
           )
         ],
       ),
