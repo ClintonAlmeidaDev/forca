@@ -15,6 +15,18 @@ class DrawerRoute extends StatefulWidget {
 class _DrawerRouteState extends State<DrawerRoute> {
   @override
   Widget build(BuildContext context) {
-    return DrawerControllerWidget();
+    return DrawerControllerWidget(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text('Jogo da Forca'),
+        centerTitle: true,
+        actions: const <Widget>[
+          Icon(
+            Icons.menu,
+            size: 40,
+          )
+        ],
+      ),
+    );
   }
 }
