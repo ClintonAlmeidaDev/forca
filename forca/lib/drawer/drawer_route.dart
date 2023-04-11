@@ -28,6 +28,8 @@ class _DrawerRouteState extends State<DrawerRoute> {
           )
         ],
       ),
+      topBody: MediaQuery.of(context).size.height - 105,
+      leftBody: MediaQuery.of(context).size.width - 105,
       body: const CircularImageWidget(
         imageProvider: AssetImage('assets/images/splashscreen.png'),
         width: 100,

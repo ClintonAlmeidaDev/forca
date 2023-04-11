@@ -3,10 +3,17 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class DrawerControllerWidget extends StatelessWidget {
-  const DrawerControllerWidget({super.key, required this.appBar, this.body});
+  const DrawerControllerWidget(
+      {super.key,
+      required this.appBar,
+      this.body,
+      this.topBody,
+      this.leftBody});
 
   final AppBar? appBar;
   final Widget? body;
+  final double? topBody;
+  final double? leftBody;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +26,13 @@ class DrawerControllerWidget extends StatelessWidget {
             right: 0.0,
             child: appBar ?? AppBar(),
           ),
-          Positioned(
-            top: MediaQuery.of(context).size.height - 105,
-            left: MediaQuery.of(context).size.width - 105,
-            child: body ?? Container(),
-          )
+          (topBody != null || leftBody != null)
+              ? Positioned(
+                  top: topBody,
+                  left: leftBody,
+                  child: body ?? Container(),
+                )
+              : body!,
         ],
       ),
     );
