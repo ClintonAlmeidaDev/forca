@@ -24,22 +24,26 @@ class DrawerControllerWidget extends StatelessWidget {
       body: Stack(
         children: [
           (topBody != null || leftBody != null)
-              ? Positioned(
-                  top: topBody,
-                  left: leftBody,
-                  child: (appBar == null)
-                      ? AppBar()
-                      : AppBar(
-                          automaticallyImplyLeading:
-                              appBar!.automaticallyImplyLeading,
-                          title: appBar!.title,
-                          centerTitle: appBar!.centerTitle,
-                          actions: <Widget>[
-                            GestureDetector(
-                              child: appBar!.actions![0],
-                            ),
-                          ],
-                        ))
+              ? SizedBox(
+                  width: MediaQuery.of(context).size.width - 200,
+                  height: MediaQuery.of(context).size.height,
+                  child: Positioned(
+                      top: topBody,
+                      left: leftBody,
+                      child: (appBar == null)
+                          ? AppBar()
+                          : AppBar(
+                              automaticallyImplyLeading:
+                                  appBar!.automaticallyImplyLeading,
+                              title: appBar!.title,
+                              centerTitle: appBar!.centerTitle,
+                              actions: <Widget>[
+                                GestureDetector(
+                                  child: appBar!.actions![0],
+                                ),
+                              ],
+                            )),
+                )
               : body!,
           DrawerController(
             child: drawer != null ? drawer! : Container(),

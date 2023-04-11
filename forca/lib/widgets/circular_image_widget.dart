@@ -8,8 +8,8 @@ class CircularImageWidget extends StatelessWidget {
   const CircularImageWidget({
     super.key,
     required this.imageProvider,
-    this.width = 100,
-    this.height = 100,
+    this.width = 300,
+    this.height = 300,
   });
 
   @override
